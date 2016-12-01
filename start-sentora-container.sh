@@ -26,7 +26,8 @@ else
 fi
 
 # Run the docker instance!
-docker run -$OPTS $ENTRYPOINT \
+docker run --restart=always \
+  -$OPTS $ENTRYPOINT \
   -p 20:20 -p 21:21 -p 25:25 -p 53:53 -p 8080:80 -p 110:110 -p 143:143 -p 443:443 -p 3306:3306 -p 993:993 -p 587:587 \
   $VOLUMES \
   sentora:$IMAGE_VERSION
